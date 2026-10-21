@@ -1,0 +1,170 @@
+$date
+	Wed Oct 21 00:51:41 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module counter_tb $end
+$var wire 1 ! led_out $end
+$var reg 1 " sys_clk $end
+$var reg 1 # sys_rst_n $end
+$scope module dut $end
+$var wire 1 " sys_clk $end
+$var wire 1 # sys_rst_n $end
+$var parameter 25 $ max $end
+$var reg 25 % cnt [24:0] $end
+$var reg 1 ! led_out $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100 $
+$end
+#0
+$dumpvars
+b0 %
+0#
+0"
+0!
+$end
+#10
+1"
+#20
+0"
+#25
+1#
+#30
+b1 %
+1"
+#40
+0"
+#50
+b10 %
+1"
+#60
+0"
+#70
+b11 %
+1"
+#80
+0"
+#90
+1!
+b0 %
+1"
+#100
+0"
+#110
+b1 %
+1"
+#120
+0"
+#130
+b10 %
+1"
+#140
+0"
+#150
+b11 %
+1"
+#160
+0"
+#170
+0!
+b0 %
+1"
+#180
+0"
+#190
+b1 %
+1"
+#200
+0"
+#210
+b10 %
+1"
+#220
+0"
+#230
+b11 %
+1"
+#240
+0"
+#250
+1!
+b0 %
+1"
+#260
+0"
+#270
+b1 %
+1"
+#280
+0"
+#285
+0!
+b0 %
+0#
+#290
+1"
+#300
+0"
+#305
+1#
+#310
+b1 %
+1"
+#320
+0"
+#330
+b10 %
+1"
+#340
+0"
+#350
+b11 %
+1"
+#360
+0"
+#370
+b0 %
+1!
+1"
+#380
+0"
+#390
+b1 %
+1"
+#400
+0"
+#410
+b10 %
+1"
+#420
+0"
+#430
+b11 %
+1"
+#440
+0"
+#450
+b0 %
+0!
+1"
+#460
+0"
+#470
+b1 %
+1"
+#480
+0"
+#490
+b10 %
+1"
+#500
+0"
+#505

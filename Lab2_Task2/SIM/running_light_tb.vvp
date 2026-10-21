@@ -1,0 +1,155 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/va_math.vpi";
+S_0xc37a5f059490 .scope module, "running_light_tb" "running_light_tb" 2 2;
+ .timescale -9 -9;
+v0xc37a5f0addf0_0 .net "LED0", 0 0, L_0xc37a5f087e60;  1 drivers
+v0xc37a5f0adeb0_0 .net "LED1", 0 0, L_0xc37a5f081770;  1 drivers
+v0xc37a5f0adf50_0 .net "LED2", 0 0, L_0xc37a5f088730;  1 drivers
+v0xc37a5f0adff0_0 .net "LED3", 0 0, L_0xc37a5f088880;  1 drivers
+v0xc37a5f0ae0c0_0 .net "led_lights", 3 0, L_0xc37a5f081700;  1 drivers
+v0xc37a5f0ae160_0 .var "sys_clk", 0 0;
+v0xc37a5f0ae230_0 .var "sys_rst_n", 0 0;
+S_0xc37a5f059620 .scope module, "dut" "running_light" 2 15, 3 2 0, S_0xc37a5f059490;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "sys_clk";
+    .port_info 1 /INPUT 1 "sys_rst_n";
+    .port_info 2 /OUTPUT 4 "led_lights";
+    .port_info 3 /OUTPUT 1 "LED0";
+    .port_info 4 /OUTPUT 1 "LED1";
+    .port_info 5 /OUTPUT 1 "LED2";
+    .port_info 6 /OUTPUT 1 "LED3";
+P_0xc37a5f059800 .param/l "counter_max" 0 3 15, C4<0000000000000000000000100>;
+L_0xc37a5f081700 .functor NOT 4, v0xc37a5f0adab0_0, C4<0000>, C4<0000>, C4<0000>;
+L_0xc37a5f087e60 .functor NOT 1, L_0xc37a5f0ae350, C4<0>, C4<0>, C4<0>;
+L_0xc37a5f081770 .functor NOT 1, L_0xc37a5f0ae510, C4<0>, C4<0>, C4<0>;
+L_0xc37a5f088730 .functor NOT 1, L_0xc37a5f0ae650, C4<0>, C4<0>, C4<0>;
+L_0xc37a5f088880 .functor NOT 1, L_0xc37a5f0ae770, C4<0>, C4<0>, C4<0>;
+v0xc37a5f088270_0 .net "LED0", 0 0, L_0xc37a5f087e60;  alias, 1 drivers
+v0xc37a5f088370_0 .net "LED1", 0 0, L_0xc37a5f081770;  alias, 1 drivers
+v0xc37a5f0ad3c0_0 .net "LED2", 0 0, L_0xc37a5f088730;  alias, 1 drivers
+v0xc37a5f0ad460_0 .net "LED3", 0 0, L_0xc37a5f088880;  alias, 1 drivers
+v0xc37a5f0ad520_0 .net *"_ivl_11", 0 0, L_0xc37a5f0ae650;  1 drivers
+v0xc37a5f0ad650_0 .net *"_ivl_15", 0 0, L_0xc37a5f0ae770;  1 drivers
+v0xc37a5f0ad730_0 .net *"_ivl_3", 0 0, L_0xc37a5f0ae350;  1 drivers
+v0xc37a5f0ad810_0 .net *"_ivl_7", 0 0, L_0xc37a5f0ae510;  1 drivers
+v0xc37a5f0ad8f0_0 .var "cnt", 24 0;
+v0xc37a5f0ad9d0_0 .net "led_lights", 3 0, L_0xc37a5f081700;  alias, 1 drivers
+v0xc37a5f0adab0_0 .var "led_new", 3 0;
+v0xc37a5f0adb90_0 .net "sys_clk", 0 0, v0xc37a5f0ae160_0;  1 drivers
+v0xc37a5f0adc50_0 .net "sys_rst_n", 0 0, v0xc37a5f0ae230_0;  1 drivers
+E_0xc37a5f083280/0 .event negedge, v0xc37a5f0adc50_0;
+E_0xc37a5f083280/1 .event posedge, v0xc37a5f0adb90_0;
+E_0xc37a5f083280 .event/or E_0xc37a5f083280/0, E_0xc37a5f083280/1;
+L_0xc37a5f0ae350 .part v0xc37a5f0adab0_0, 0, 1;
+L_0xc37a5f0ae510 .part v0xc37a5f0adab0_0, 1, 1;
+L_0xc37a5f0ae650 .part v0xc37a5f0adab0_0, 2, 1;
+L_0xc37a5f0ae770 .part v0xc37a5f0adab0_0, 3, 1;
+    .scope S_0xc37a5f059620;
+T_0 ;
+    %wait E_0xc37a5f083280;
+    %load/vec4 v0xc37a5f0adc50_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 25;
+    %assign/vec4 v0xc37a5f0ad8f0_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0xc37a5f0ad8f0_0;
+    %cmpi/e 3, 0, 25;
+    %jmp/0xz  T_0.2, 4;
+    %pushi/vec4 0, 0, 25;
+    %assign/vec4 v0xc37a5f0ad8f0_0, 0;
+    %jmp T_0.3;
+T_0.2 ;
+    %load/vec4 v0xc37a5f0ad8f0_0;
+    %addi 1, 0, 25;
+    %assign/vec4 v0xc37a5f0ad8f0_0, 0;
+T_0.3 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0xc37a5f059620;
+T_1 ;
+    %wait E_0xc37a5f083280;
+    %load/vec4 v0xc37a5f0adc50_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %pushi/vec4 1, 0, 4;
+    %assign/vec4 v0xc37a5f0adab0_0, 0;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v0xc37a5f0ad8f0_0;
+    %cmpi/e 3, 0, 25;
+    %jmp/0xz  T_1.2, 4;
+    %load/vec4 v0xc37a5f0adab0_0;
+    %cmpi/e 8, 0, 4;
+    %jmp/0xz  T_1.4, 4;
+    %pushi/vec4 1, 0, 4;
+    %assign/vec4 v0xc37a5f0adab0_0, 0;
+    %jmp T_1.5;
+T_1.4 ;
+    %load/vec4 v0xc37a5f0adab0_0;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %shiftl 4;
+    %assign/vec4 v0xc37a5f0adab0_0, 0;
+T_1.5 ;
+    %jmp T_1.3;
+T_1.2 ;
+    %load/vec4 v0xc37a5f0adab0_0;
+    %assign/vec4 v0xc37a5f0adab0_0, 0;
+T_1.3 ;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0xc37a5f059490;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0xc37a5f0ae160_0, 0, 1;
+    %end;
+    .thread T_2;
+    .scope S_0xc37a5f059490;
+T_3 ;
+    %delay 10, 0;
+    %load/vec4 v0xc37a5f0ae160_0;
+    %inv;
+    %store/vec4 v0xc37a5f0ae160_0, 0, 1;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_0xc37a5f059490;
+T_4 ;
+    %vpi_call 2 29 "$dumpfile", "running_light_tb.vcd" {0 0 0};
+    %vpi_call 2 30 "$dumpvars", 32'sb00000000000000000000000000000000, S_0xc37a5f059490 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0xc37a5f0ae230_0, 0, 1;
+    %delay 25, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0xc37a5f0ae230_0, 0, 1;
+    %delay 330, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0xc37a5f0ae230_0, 0, 1;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0xc37a5f0ae230_0, 0, 1;
+    %delay 500, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0xc37a5f0ae230_0, 0, 1;
+    %delay 200, 0;
+    %vpi_call 2 42 "$finish" {0 0 0};
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "running_light_tb.v";
+    "../RTL/running_light.v";
